@@ -34,7 +34,10 @@ export default async function ProductPage({ params }: { params: { handle: string
         <div>
           <h1 className="text-3xl font-bold mb-4">{title}</h1>
           <p className="text-xl mb-4">{price.amount} {price.currencyCode}</p>
-          <div className="mb-6" dangerouslySetInnerHTML={{ __html: description }} />
+          <div 
+            className="mb-6 prose prose-sm max-w-none" 
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
           <AddToCartButton productId={product.id} variantId={variants.edges[0].node.id} />
         </div>
       </div>

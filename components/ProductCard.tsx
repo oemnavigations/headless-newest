@@ -15,17 +15,23 @@ export default function ProductCard({ product }: { product: any }) {
     return null;
   }
 
+  const image = images?.edges[0]?.node;
+
   return (
     <Link href={`/products/${handle}`} className="group">
       <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-        {images?.edges[0] && (
+        {image ? (
           <Image
-            src={images.edges[0].node.url}
-            alt={images.edges[0].node.altText || title || 'Product image'}
-            width={300}
-            height={300}
+            src={image.url}
+            alt={image.altText || title || 'Product image'}
+            width={image.width || 300}
+            height={image.height || 300}
             className="h-full w-full object-cover object-center group-hover:opacity-75"
           />
+        ) : (
+          <div className="flex items-center justify-center h-full bg-gray-200 text-gray-500">
+            No image
+          </div>
         )}
       </div>
       <h3 className="mt-4 text-sm text-gray-700">{title || 'Untitled Product'}</h3>

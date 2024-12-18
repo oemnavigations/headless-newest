@@ -11,19 +11,24 @@ export default async function ProductPage({ params }: { params: { handle: string
 
   const { title, description, images, variants } = product;
   const price = variants.edges[0].node.price;
+  const mainImage = images.edges[0]?.node;
 
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="grid md:grid-cols-2 gap-8">
         <div>
-          {images.edges[0] && (
+          {mainImage ? (
             <Image
-              src={images.edges[0].node.url}
-              alt={images.edges[0].node.altText || title}
-              width={500}
-              height={500}
+              src={mainImage.url}
+              alt={mainImage.altText || title}
+              width={mainImage.width || 500}
+              height={mainImage.height || 500}
               className="rounded-lg"
             />
+          ) : (
+            <div className="aspect-w-1 aspect-h-1 w-full bg-gray-200 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500">No image available</span>
+            </div>
           )}
         </div>
         <div>

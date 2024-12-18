@@ -63,6 +63,8 @@ export async function getProducts() {
                 node {
                   url
                   altText
+                  width
+                  height
                 }
               }
             }
@@ -108,6 +110,8 @@ export async function getProduct(handle: string) {
             node {
               url
               altText
+              width
+              height
             }
           }
         }

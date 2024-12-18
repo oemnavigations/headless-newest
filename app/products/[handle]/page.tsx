@@ -21,8 +21,8 @@ export default async function ProductPage({ params }: { params: { handle: string
             <Image
               src={mainImage.url}
               alt={mainImage.altText || title}
-              width={mainImage.width || 500}
-              height={mainImage.height || 500}
+              width={500}
+              height={500}
               className="rounded-lg"
             />
           ) : (

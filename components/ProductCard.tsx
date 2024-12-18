@@ -24,8 +24,8 @@ export default function ProductCard({ product }: { product: any }) {
           <Image
             src={image.url}
             alt={image.altText || title || 'Product image'}
-            width={image.width || 300}
-            height={image.height || 300}
+            width={500}
+            height={500}
             className="h-full w-full object-cover object-center group-hover:opacity-75"
           />
         ) : (
